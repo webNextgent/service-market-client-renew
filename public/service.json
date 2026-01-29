@@ -1,0 +1,15 @@
+[
+  {
+    "service": {
+      "id": "u98765",
+      "image": "https://i.postimg.cc/Xq1LbGDv/pexels-flodahm-1137511.jpg",
+      "title": "Holiday Homes",
+      "rating": "4.6",
+      "booking": "18k",
+      "subHeading": "From cozy cottages to beach villas",
+      "des1": "Find your perfect getaway.",
+      "des2": "From cozy cottages to beach villas.",
+      "des3": "Enjoy comfort, style, and great hospitality."
+    }
+  }
+]

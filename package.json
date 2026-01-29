@@ -1,0 +1,58 @@
+{
+  "name": "service-market",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@react-google-maps/api": "^2.20.7",
+    "@tailwindcss/vite": "^4.1.17",
+    "@tanstack/react-query": "^5.90.7",
+    "@vis.gl/react-google-maps": "^1.7.1",
+    "axios": "^1.13.2",
+    "express": "^4.18.2",
+    "firebase": "^12.8.0",
+    "flag-icons": "^7.5.0",
+    "jwt-decode": "^4.0.0",
+    "leaflet": "^1.9.4",
+    "localforage": "^1.10.0",
+    "lodash": "^4.17.21",
+    "lodash.throttle": "^4.1.1",
+    "lucide-react": "^0.553.0",
+    "match-sorter": "^8.1.0",
+    "react": "^19.1.1",
+    "react-datepicker": "^8.10.0",
+    "react-dom": "^19.1.1",
+    "react-hook-form": "^7.66.1",
+    "react-hot-toast": "^2.6.0",
+    "react-icons": "^5.5.0",
+    "react-phone-input-2": "^2.15.1",
+    "react-router-dom": "^7.9.5",
+    "sort-by": "^1.2.0",
+    "sweetalert2": "^11.26.3",
+    "swiper": "^12.0.3",
+    "tailwindcss": "^4.1.17",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
+    "daisyui": "^5.4.7",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "globals": "^16.4.0",
+    "vite": "npm:rolldown-vite@7.1.14"
+  },
+  "overrides": {
+    "vite": "npm:rolldown-vite@7.1.14"
+  }
+}
