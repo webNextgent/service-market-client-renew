@@ -19,7 +19,7 @@ const Card = ({ service }) => {
             />
 
             {/* Content Section */}
-            <div className="p-6 md:p-8  absolute top-[210px] rounded-t-4xl w-full bg-white">
+            <div className="p-6 md:p-8  absolute md:relative top-[210px] md:top-0 rounded-t-4xl md:rounded-t-none w-full bg-white">
                 <div className="flex items-center justify-between border-b border-gray-200 pb-3">
                     {/* Left Side Info */}
                     <div>

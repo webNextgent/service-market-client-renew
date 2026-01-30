@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const CassieModal = ({ open, onClose }) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -14,7 +15,7 @@ const CassieModal = ({ open, onClose }) => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const axiosSecure = useAxiosSecure();
-    // const navigate = useNavigate();
+    const navigate = useNavigate(); 
 
     if (!open) return null;
 
@@ -31,7 +32,7 @@ const CassieModal = ({ open, onClose }) => {
             if (res?.data?.success) {
                 reset();
                 onClose();
-                // navigate('/confirmation');
+                navigate('/confirmation');
             }
         } catch (error) {
             console.error("Submission error:", error);
@@ -73,7 +74,7 @@ const CassieModal = ({ open, onClose }) => {
                 </div>
 
                 {/* Body - Scrollable */}
-                <div className="p-6 space-y-4 overflow-y-auto flex-grow">
+                <div className="p-6 space-y-4 overflow-y-auto grow">
                     {/* First Name */}
                     <div>
                         <label className="block text-sm font-medium mb-1">
