@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-r from-red-700 to-red-800 text-white">
-      
+
       {/* Large/Medium Device View */}
       <div className="hidden md:block">
         <div className="py-10 px-20">
@@ -17,7 +17,7 @@ export default function Footer() {
               <p className="text-base">
                 Established in 2002, trusted pest control in Sharjah & Dubai.
               </p>
-              
+
               <div className="flex gap-3 mt-4">
                 <a href="https://facebook.com" className="hover:text-yellow-300">
                   <FaFacebookF className="text-lg" />
@@ -36,9 +36,9 @@ export default function Footer() {
               <h2 className="text-xl font-bold mb-4">Quick Links</h2>
               <ul className="space-y-2">
                 <li><Link to="/" className="hover:underline">Home</Link></li>
-                <li><Link to="/about" className="hover:underline">About Us</Link></li>
-                <li><Link to="/blog" className="hover:underline">Blog</Link></li>
-                <li><Link to="/contact" className="hover:underline">Contact Us</Link></li>
+                <li><Link to="/" className="hover:underline">About Us</Link></li>
+                <li><Link to="/" className="hover:underline">Blog</Link></li>
+                <li><Link to="/" className="hover:underline">Contact Us</Link></li>
               </ul>
             </div>
 
@@ -92,7 +92,7 @@ export default function Footer() {
       {/* Small Device View */}
       <div className="block md:hidden py-4 px-6">
         <div className="space-y-6">
-          
+
           {/* Company & Social */}
           <div className="text-center">
             <h2 className="text-lg font-bold mb-2">Al Mandhar Pest Control</h2>
@@ -124,9 +124,9 @@ export default function Footer() {
           {/* Quick Links - Compact */}
           <div className="flex justify-center gap-4 text-sm">
             <Link to="/" className="hover:underline">Home</Link>
-            <Link to="/about" className="hover:underline">About</Link>
-            <Link to="/blog" className="hover:underline">Blog</Link>
-            <Link to="/contact" className="hover:underline">Contact</Link>
+            <Link to="/" className="hover:underline">About</Link>
+            <Link to="/" className="hover:underline">Blog</Link>
+            <Link to="/" className="hover:underline">Contact</Link>
           </div>
 
           {/* Copyright - Small */}
