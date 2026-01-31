@@ -19,6 +19,9 @@ export default function LocationPicker() {
         googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
         libraries: ["places"],
     });
+    const [showMapOverlay, setShowMapOverlay] = useState(false);
+    const [isLocationLoading, setIsLocationLoading] = useState(false);
+
 
     const { itemSummary, totalAfterDiscount, showInput, setShowInput, address, serviceTitle, setMapLongitude, setMapLatitude, setAddressLocation, liveAddress, saveAddress, setLiveAddress, totalVatRate, mapLongitude, mapLatitude } = useSummary();
 
@@ -372,6 +375,7 @@ export default function LocationPicker() {
                                     <button
                                         onClick={() => {
                                             setShowMapForNew(true);
+                                            setShowMapOverlay(true);
                                             setSelectedAddressId(null);
                                             setFromListSelection(false);
                                             setIsNextDisabled(true);
@@ -447,6 +451,92 @@ export default function LocationPicker() {
                                         <FaSatellite />
                                     </button>
                                 </div>
+
+                                {showMapForNew && showMapOverlay && (
+                                    <div className="absolute inset-0 z-30 bg-black/40 flex items-center justify-center">
+                                        <div className="bg-white rounded-xl p-6 w-[90%] max-w-sm text-center shadow-xl">
+                                            <FaLocationCrosshairs className="text-[#01788E] text-3xl mx-auto mb-3" />
+
+                                            <h3 className="text-lg font-semibold mb-2">
+                                                Use your current location?
+                                            </h3>
+
+                                            <p className="text-sm text-gray-600 mb-4">
+                                                We can automatically detect your location for this address.
+                                            </p>
+
+                                            <div className="flex gap-3">
+                                                {/* <button
+                                                    onClick={async () => {
+                                                        await getCurrentAddress();   // ♻ existing function
+                                                        setShowMapOverlay(false);    // overlay OFF
+                                                    }}
+                                                    className="flex-1 bg-[#01788E] text-white py-2 rounded-lg font-medium"
+                                                >
+                                                    Use Location
+                                                </button> */}
+                                                <button
+                                                    disabled={isLocationLoading}
+                                                    onClick={async () => {
+                                                        try {
+                                                            setIsLocationLoading(true);      // 🔄 loading start
+                                                            await getCurrentAddress();       // 📍 GPS + address
+                                                            setShowMapOverlay(false);        // ❌ overlay close
+                                                        } catch (error) {
+                                                            alert("Location permission denied");
+                                                            console.error(error);
+                                                        } finally {
+                                                            setIsLocationLoading(false);     // ✅ loading stop
+                                                        }
+                                                    }}
+                                                    className={`flex-1 py-2 rounded-lg font-medium flex items-center justify-center gap-2
+    ${isLocationLoading
+                                                            ? "bg-gray-300 cursor-not-allowed"
+                                                            : "bg-[#01788E] text-white"
+                                                        }`}
+                                                >
+                                                    {isLocationLoading ? (
+                                                        <>
+                                                            <svg
+                                                                className="animate-spin h-5 w-5 text-white"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                fill="none"
+                                                                viewBox="0 0 24 24"
+                                                            >
+                                                                <circle
+                                                                    className="opacity-25"
+                                                                    cx="12"
+                                                                    cy="12"
+                                                                    r="10"
+                                                                    stroke="currentColor"
+                                                                    strokeWidth="4"
+                                                                />
+                                                                <path
+                                                                    className="opacity-75"
+                                                                    fill="currentColor"
+                                                                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                                                                />
+                                                            </svg>
+                                                            <span>Getting location...</span>
+                                                        </>
+                                                    ) : (
+                                                        "Use Location"
+                                                    )}
+                                                </button>
+
+                                                <button
+                                                    disabled={isLocationLoading}
+                                                    onClick={() => setShowMapOverlay(false)}
+                                                    className="flex-1 border border-gray-300 py-2 rounded-lg font-medium text-gray-700 disabled:opacity-50"
+                                                >
+                                                    Skip
+                                                </button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
 
                                 {/* Google Map */}
                                 <GoogleMap
