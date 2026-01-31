@@ -256,7 +256,7 @@ export default function LocationPicker() {
             <div className="flex justify-center gap-8 md:mt-5">
                 <div className="md:w-[60%] mb-4 space-y-1 relative shadow-md w-full px-6 py-6 md:p-10">
                     <h2 className="text-[24px] text-center md:text-start font-semibold">Where do you need the service?</h2>
-                    <p className="text-center md:text-start">Please select your current address or add a new address</p>
+                    <p className="">Please select your current address or add a new address</p>
 
                     {
                         saveAddress.length > 0 && !showMapForNew ?
@@ -320,8 +320,8 @@ export default function LocationPicker() {
                                     </div>
                                 </div> */}
 
-                                <div className="mb-4 pt-2 border-t">
-                                    <h4 className="text-lg font-medium mb-3">Saved Addresses</h4>
+                                <div className="mb-4">
+                                    {/* <h4 className="text-lg font-medium mb-3">Saved Addresses</h4> */}
                                     {saveAddress.map((addr) => (
                                         <div
                                             key={addr.id}

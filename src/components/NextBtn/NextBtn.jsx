@@ -3,7 +3,7 @@ import { steps } from "./FlowSteps";
 import useAuth from "../../hooks/useAuth";
 import { useSummary } from "../../provider/SummaryProvider";
 
-const NextBtn = ({ name = "Next", disabled, onClick, loading }) => {
+const NextBtn = ({ name = "Next", disabled, onClick }) => {
     const navigate = useNavigate();
     const { user } = useAuth();
     const { pathname } = useLocation();
@@ -44,11 +44,7 @@ const NextBtn = ({ name = "Next", disabled, onClick, loading }) => {
                 className={`flex items-center justify-center gap-2 px-6 py-3 rounded-sm font-semibold text-white w-[90%] md:w-[60%] lg:w-60
             ${isDisabled ? "bg-gray-300 cursor-not-allowed" : "bg-[#ED6329] hover:bg-[#d4541f] cursor-pointer"}`}
             >
-                {loading ? 'loading..' : (
-                    <>
-                        {name} <span className="text-xl">→</span>
-                    </>
-                )}
+                {name} <span className="text-xl">→</span>
             </button>
         </div>
 

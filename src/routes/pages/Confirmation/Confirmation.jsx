@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useRef, useState } from "react";
 import NextBtn from "../../../components/NextBtn/NextBtn";
 import ServiceDetails from "../../../components/ServiceDetails/ServiceDetails";
@@ -332,7 +333,7 @@ export default function Confirmation() {
             </div>
 
             <div className="my-4 md:my-0 mx-auto w-60">
-                <NextBtn loading={loading} onClick={handelBookingConfirmation} name="Book Now" />
+                <NextBtn onClick={handelBookingConfirmation} name="Book Now" />
             </div>
 
             {/* MODAL */}
