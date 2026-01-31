@@ -12,7 +12,7 @@ const Navbar = () => {
     const { loginModalOpen, setLoginModalOpen } = useSummary();
     const { user, logOut } = useAuth();
     const isMobile = window.innerWidth < 768;
-
+    console.log(user);
     // 🔹 Click outside / backdrop handler
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -34,10 +34,10 @@ const Navbar = () => {
     }, [dropdownOpen]);
 
     return (
-        <>
-            <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md px-6 md:px-12 navbar md:flex md:justify-center md:items-center">
+        <div className="">
+            <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md md:px-12 navbar md:flex md:justify-center md:items-center">
                 {/* Left */}
-                <div className="navbar-start flex items-center">
+                <div className="navbar-start flex items-center flex-1">
                     <Link to="/">
                         <img
                             className="w-[133px] h-[33px]"
@@ -67,7 +67,7 @@ const Navbar = () => {
                                     setDropdownOpen(!dropdownOpen)
                                 }
                             >
-                                {user?.name || user?.role}
+                                {user?.firstName + user?.lastName || user?.role}
                             </button>
 
                             {/* Dropdown */}
@@ -144,7 +144,7 @@ const Navbar = () => {
 
             {/* Spacer */}
             <div className="h-10 md:h-[70px]"></div>
-        </>
+        </div>
     );
 };
 

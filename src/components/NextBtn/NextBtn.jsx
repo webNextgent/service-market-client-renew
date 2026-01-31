@@ -18,7 +18,7 @@ const NextBtn = ({ name = "Next", disabled, onClick }) => {
             setLoginModalOpen(true);
             return;
         }
-
+        
         let shouldNavigate = true;
         if (onClick) {
             try {
@@ -37,7 +37,7 @@ const NextBtn = ({ name = "Next", disabled, onClick }) => {
     };
 
     return (
-        <div className="flex justify-center">
+        <div className="w-full p-2 lg:flex lg:justify-center lg:fixed lg:bottom-0 lg:left-0 bg-white lg:z-40">
             <button
                 onClick={handleClick}
                 disabled={isDisabled}

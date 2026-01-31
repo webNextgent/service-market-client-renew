@@ -513,7 +513,7 @@ const Services = () => {
                     </div>
                 </div>)}
 
-            <div className="hidden fixed bottom-0 lg:flex items-center justify-center bg-pink-700">
+            <div className="hidden lg:block">
                 <NextBtn disabled={itemSummary.length === 0} />
             </div>
         </div>

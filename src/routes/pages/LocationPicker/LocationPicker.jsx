@@ -30,7 +30,7 @@ export default function LocationPicker() {
     const [currentAddress, setCurrentAddress] = useState(null);
     const [isGettingCurrentAddress, setIsGettingCurrentAddress] = useState(false);
     const [showCurrentAddressOption, setShowCurrentAddressOption] = useState(false);
-    
+
     // Autocomplete input ref
     const autocompleteInputRef = useRef(null);
 
@@ -85,7 +85,7 @@ export default function LocationPicker() {
 
     const onLoadAutocomplete = (auto) => {
         setAutocomplete(auto);
-        
+
         // Attach click event listener to the input
         const inputElement = auto.inputField;
         if (inputElement) {
@@ -173,24 +173,24 @@ export default function LocationPicker() {
             };
 
             setCurrentAddress(currentAddr);
-            
+
             // Update map position
             setSelectedPos(pos);
             map?.panTo(pos);
             setMapLatitude(pos.lat);
             setMapLongitude(pos.lng);
             setAddressLocation(result);
-            
+
             setIsNextDisabled(false);
             setMapAddressSelected(true);
             setFromListSelection(false);
             setShowCurrentAddressOption(false);
-            
+
             // Clear the input field
             if (autocomplete && autocomplete.inputField) {
                 autocomplete.inputField.value = result;
             }
-            
+
             return currentAddr;
         } catch (error) {
             console.error("Error getting current address:", error);
@@ -254,9 +254,9 @@ export default function LocationPicker() {
                 <ServiceDetails title="Address" currentStep={2} />
             </div>
             <div className="flex justify-center gap-8 md:mt-5">
-                <div className="md:w-[60%] mb-4 space-y-1 relative shadow-md w-full px-6 py-6 md:p-10">
+                <div className="md:w-[60%] mb-4 space-y-1 relative shadow-md w-full py-6 px-3">
                     <h2 className="text-[24px] text-center md:text-start font-semibold">Where do you need the service?</h2>
-                    <p className="">Please select your current address or add a new address</p>
+                    <p>Please select your current address or add a new address</p>
 
                     {
                         saveAddress.length > 0 && !showMapForNew ?
@@ -321,7 +321,6 @@ export default function LocationPicker() {
                                 </div> */}
 
                                 <div className="mb-4">
-                                    {/* <h4 className="text-lg font-medium mb-3">Saved Addresses</h4> */}
                                     {saveAddress.map((addr) => (
                                         <div
                                             key={addr.id}
@@ -387,12 +386,12 @@ export default function LocationPicker() {
                                     </button>
                                 </div>
                             </div> :
-                            <div>
+                            <div className="">
                                 {/* Search Input */}
-                                <div className="absolute md:top-18 left-1/2 -translate-x-1/2 z-20 w-11/12">
+                                <div className="absolute md:top-26 left-1/2 -translate-x-1/2 z-20 w-11/12">
                                     <div className="shadow-lg bg-white rounded-md relative">
-                                        <Autocomplete 
-                                            onLoad={onLoadAutocomplete} 
+                                        <Autocomplete
+                                            onLoad={onLoadAutocomplete}
                                             onPlaceChanged={onPlaceChanged}
                                         >
                                             <input
@@ -403,7 +402,7 @@ export default function LocationPicker() {
                                                 onClick={() => setShowCurrentAddressOption(true)}
                                             />
                                         </Autocomplete>
-                                        
+
                                         {/* Custom Current Location Option in Autocomplete Dropdown */}
                                         {showCurrentAddressOption && (
                                             <div className="absolute top-full left-0 right-0 bg-white border border-t-0 border-gray-300 rounded-b-md shadow-lg z-30">
@@ -419,8 +418,8 @@ export default function LocationPicker() {
                                                             Use Current Location
                                                         </div>
                                                         <div className="text-sm text-gray-600">
-                                                            {isGettingCurrentAddress 
-                                                                ? "Getting your location..." 
+                                                            {isGettingCurrentAddress
+                                                                ? "Getting your location..."
                                                                 : "Get your current address using GPS"}
                                                         </div>
                                                     </div>
