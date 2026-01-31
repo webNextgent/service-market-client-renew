@@ -1,94 +1,142 @@
-import { FaDownload } from "react-icons/fa";
-import { IoLocation } from "react-icons/io5";
-import { CiMail } from "react-icons/ci";
-import { FaPhoneAlt } from "react-icons/fa";
-import { IoLogoWhatsapp } from "react-icons/io5";
+import { FaPhoneAlt, FaFacebookF, FaInstagram, FaYoutube, FaEnvelope } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-red-700 text-white py-10 px-6 md:px-20 font-sans mb-12 md:mb-0">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+    <footer className="bg-gradient-to-r from-red-700 to-red-800 text-white">
+      
+      {/* Large/Medium Device View */}
+      <div className="hidden md:block">
+        <div className="py-10 px-20">
+          <div className="grid grid-cols-4 gap-10">
 
-        {/* About Us */}
-        <div>
-          <h2 className="text-xl font-semibold mb-4">About Us</h2>
-          <p className="text-base leading-relaxed">
-            Al Mandhar Pest Control, established in 2002, is a trusted and reliable pest
-            control company serving the areas of Sharjah and Dubai.
-          </p>
+            {/* Company Info */}
+            <div>
+              <h2 className="text-xl font-bold mb-4">Al Mandhar Pest Control</h2>
+              <p className="text-base">
+                Established in 2002, trusted pest control in Sharjah & Dubai.
+              </p>
+              
+              <div className="flex gap-3 mt-4">
+                <a href="https://facebook.com" className="hover:text-yellow-300">
+                  <FaFacebookF className="text-lg" />
+                </a>
+                <a href="https://instagram.com" className="hover:text-yellow-300">
+                  <FaInstagram className="text-lg" />
+                </a>
+                <a href="https://youtube.com" className="hover:text-yellow-300">
+                  <FaYoutube className="text-lg" />
+                </a>
+              </div>
+            </div>
 
-          <div className="flex items-center gap-2 mt-6 text-lg cursor-pointer hover:text-black">
-            <FaDownload />
-            <p className="tracking-wide">Company Profile</p>
+            {/* Quick Links */}
+            <div>
+              <h2 className="text-xl font-bold mb-4">Quick Links</h2>
+              <ul className="space-y-2">
+                <li><Link to="/" className="hover:underline">Home</Link></li>
+                <li><Link to="/about" className="hover:underline">About Us</Link></li>
+                <li><Link to="/blog" className="hover:underline">Blog</Link></li>
+                <li><Link to="/contact" className="hover:underline">Contact Us</Link></li>
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h2 className="text-xl font-bold mb-4">Services</h2>
+              <ul className="space-y-2">
+                <li>Cockroach Control</li>
+                <li>Termites Control</li>
+                <li>Bed Bugs Control</li>
+                <li>Rodent Control</li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h2 className="text-xl font-bold mb-4">Contact</h2>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-2">
+                  <FaPhoneAlt />
+                  <a href="tel:0563339199">056 333 9199</a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaPhoneAlt />
+                  <a href="tel:+97142234567">+971 4 223 4567</a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaEnvelope />
+                  <a href="mailto:info@mpcpest.ae">info@mpcpest.ae</a>
+                </li>
+                <li className="flex items-start gap-2">
+                  <FaLocationDot className="mt-1" />
+                  <span>Office 101, Al Zarouni Building, Dubai</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t mt-8 pt-6 text-center">
+            <p>
+              Copyright © 2024 <span className="font-bold">Al Mandhar Pest Control</span> All rights reserved.
+            </p>
+            <p className="mt-2">
+              Development &amp; SEO By{" "}
+              <span className="font-bold hover:text-yellow-300 cursor-pointer">NextGent.Org</span>
+            </p>
           </div>
         </div>
+      </div>
 
-        {/* Useful Links */}
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Usefull Links</h2>
-          <ul className="space-y-2 text-base">
-            <a className="cursor-pointer hover:text-black">Home</a>
-            <li className="cursor-pointer hover:text-black">Pest Control Dubai</li>
-            <li className="cursor-pointer hover:text-black">Blog</li>
-            <li className="cursor-pointer hover:text-black">About Us</li>
-            <li className="cursor-pointer hover:text-black">Contact Us</li>
-            <li className="cursor-pointer hover:text-black">Privacy Policy</li>
-          </ul>
-        </div>
+      {/* Small Device View */}
+      <div className="block md:hidden py-4 px-6">
+        <div className="space-y-6">
+          
+          {/* Company & Social */}
+          <div className="text-center">
+            <h2 className="text-lg font-bold mb-2">Al Mandhar Pest Control</h2>
+            <div className="flex justify-center gap-4 mb-3">
+              <a href="https://facebook.com" className="hover:text-yellow-300">
+                <FaFacebookF />
+              </a>
+              <a href="https://instagram.com" className="hover:text-yellow-300">
+                <FaInstagram />
+              </a>
+              <a href="https://youtube.com" className="hover:text-yellow-300">
+                <FaYoutube />
+              </a>
+            </div>
+          </div>
 
-        {/* Top Services */}
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Top Services</h2>
-          <ul className="space-y-2 text-base">
-            <li className="cursor-pointer hover:text-black">Cockroach Control</li>
-            <li className="cursor-pointer hover:text-black">Termites Control</li>
-            <li className="cursor-pointer hover:text-black">Bed Bugs Control</li>
-            <li className="cursor-pointer hover:text-black">Rodent Control</li>
-            <li className="cursor-pointer hover:text-black">Mosquitoes Control</li>
-            <li className="cursor-pointer hover:text-black">Ants Control</li>
-            <li className="cursor-pointer hover:text-black">Spider Control</li>
-            <li className="cursor-pointer hover:text-black">Bird Control</li>
-          </ul>
-        </div>
+          {/* Contact Info - Simple */}
+          <div className="text-center space-y-2">
+            <div className="flex justify-center items-center gap-2">
+              <FaPhoneAlt />
+              <a href="tel:0563339199" className="font-medium">056 333 9199</a>
+            </div>
+            <div className="flex justify-center items-center gap-2">
+              <FaEnvelope />
+              <a href="mailto:info@mpcpest.ae" className="text-sm">info@mpcpest.ae</a>
+            </div>
+          </div>
 
-        {/* Get in Touch */}
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Get in Touch</h2>
-          <ul className="space-y-3 text-base">
-            <li className="flex items-center gap-3 cursor-pointer hover:text-black">
-              <IoLocation className="text-xl" />
-              <p>office 101 al zarouni building frej al murar deira dubai uae</p>
-            </li>
+          {/* Quick Links - Compact */}
+          <div className="flex justify-center gap-4 text-sm">
+            <Link to="/" className="hover:underline">Home</Link>
+            <Link to="/about" className="hover:underline">About</Link>
+            <Link to="/blog" className="hover:underline">Blog</Link>
+            <Link to="/contact" className="hover:underline">Contact</Link>
+          </div>
 
-            <li className="flex items-center gap-3 cursor-pointer hover:text-black">
-              <CiMail className="text-xl" />
-              <p>info@mpcpest.ae</p>
-            </li>
-
-            <li className="flex items-center gap-3 cursor-pointer hover:text-black">
-              <FaPhoneAlt className="text-xl" />
-              <p>0563339199</p>
-            </li>
-
-            <li className="flex items-center gap-3 cursor-pointer hover:text-black">
-              <IoLogoWhatsapp className="text-xl" />
-              <p>0563339199</p>
-            </li>
-          </ul>
+          {/* Copyright - Small */}
+          <div className="border-t pt-3 text-center text-sm">
+            <p>© 2024 Al Mandhar Pest Control</p>
+            <p className="text-xs mt-1">By NextGent.Org</p>
+          </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white/30 mt-10 pt-6 text-center text-base">
-        <p>
-          Copyright © 2024{" "}
-          <span className="font-semibold">Al Mandhar Pest Control</span> All rights reserved.
-        </p>
-        <p className="mt-2">
-          Development &amp; SEO By{" "}
-          <span className="font-semibold hover:text-black cursor-pointer">NextGent.Org</span>
-        </p>
-      </div>
     </footer>
   );
 }
