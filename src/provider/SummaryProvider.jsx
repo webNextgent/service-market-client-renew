@@ -7,6 +7,7 @@ import { useQueries } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { v4 as uuidv4 } from "uuid";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import useAuth from "../hooks/useAuth";
 
 const SummaryContext = createContext();
 
@@ -30,6 +31,8 @@ export const SummaryProvider = ({ children }) => {
     const [loginModalOpen, setLoginModalOpen] = useState(false);
     const [cassieModalOpen, setCassieModalOpen] = useState(false);
     const axiosSecure = useAxiosSecure();
+    const { user } = useAuth();
+    console.log(user);
 
     // Saved addresses management
     const [saveAddress, setSaveAddress] = useState(() => {
@@ -50,22 +53,15 @@ export const SummaryProvider = ({ children }) => {
     // for promo code
     const handleApply = async (promoCode) => {
         try {
-            const res = await axiosSecure.post(`/promo-code/use-promo-code/6947c2d395c2c51a68b5414f`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ code: promoCode }),
-            });
-
-            const result = await res.json();
-
-            if (!res.ok) {
-                toast.error(result?.message || "Invalid promo code");
+            const res = await axiosSecure.post(`/promo-code/use-promo-code/${user?.id}`, { code: promoCode });
+            // console.log(res);
+            if (!res?.data?.success) {
+                toast.error(res?.date?.message || "Invalid promo code");
                 return;
             }
-
             setPromo(promoCode);
             setPromoStatus(true);
-            setUseDiscount(Number(result?.Data?.discount || 0));
+            setUseDiscount(Number(res?.data?.Data?.discount || 0));
             toast.success("Promo applied successfully");
         } catch {
             toast.error("Something went wrong");

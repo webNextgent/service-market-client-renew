@@ -1,3 +1,4 @@
+// fixed quantity code
 import { useState, useEffect } from "react";
 import { IoAddSharp } from "react-icons/io5";
 import { MdOutlineArrowBack } from "react-icons/md";
@@ -22,29 +23,19 @@ const ContentModal = ({ setShowModal, property }) => {
     const handleAdd = (id) => {
         setQuantities((prev) => ({
             ...prev,
-            [id]: (prev[id] || 0) + 1,
+            [id]: 1,
         }));
         addItem(id);
     };
 
     const handleRemove = (id) => {
         setQuantities((prev) => {
-            const currentQty = prev[id] || 0;
-
-            if (currentQty > 1) {
-                return {
-                    ...prev,
-                    [id]: currentQty - 1,
-                };
-            }
             const updated = { ...prev };
             delete updated[id];
             return updated;
         });
-
         removeItem(id);
     };
-
 
     if (!property) {
         return (
@@ -175,20 +166,13 @@ const ContentModal = ({ setShowModal, property }) => {
                                                                 <span className="font-semibold text-gray-800 text-base sm:text-lg min-w-8 text-center">
                                                                     {qty}
                                                                 </span>
-
                                                                 <button
-                                                                    onClick={() => handleAdd(item.id)}
-                                                                    disabled={qty >= 5}
-                                                                    className={`w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center border rounded-full text-lg
-                                                                             ${qty >= 5
-                                                                            ? "border-gray-400 text-gray-400 cursor-not-allowed"
-                                                                            : "border-[#01788E] text-[#01788E] hover:bg-gray-50 cursor-pointer"
-                                                                        }`}
-                                                                    title={qty >= 5 ? "Maximum 5 services allowed" : ""}
+                                                                    disabled
+                                                                    className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center border border-gray-400 text-gray-400 rounded-full cursor-not-allowed text-lg"
+                                                                    title="Maximum quantity reached"
                                                                 >
                                                                     +
                                                                 </button>
-
                                                             </div>
                                                         )}
                                                     </div>
@@ -316,20 +300,13 @@ const ContentModal = ({ setShowModal, property }) => {
                                 <span className="text-lg md:text-xl font-semibold mx-4 md:mx-6 w-8 text-center">
                                     {quantities[selectedItem.id] || 0}
                                 </span>
-                                
                                 <button
-                                    onClick={() => handleAdd(selectedItem.id)}
-                                    disabled={(quantities[selectedItem.id] || 0) >= 5}
-                                    className={`w-8 h-8 md:w-10 md:h-10 flex items-center justify-center border rounded-full text-xl md:text-2xl
-                                             ${(quantities[selectedItem.id] || 0) >= 5
-                                            ? "border-gray-400 text-gray-400 cursor-not-allowed"
-                                            : "border-[#01788E] text-[#01788E] hover:bg-gray-50 cursor-pointer"
-                                        }`}
-                                    title={(quantities[selectedItem.id] || 0) >= 5 ? "Maximum 5 allowed" : ""}
+                                    disabled
+                                    className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center border border-gray-300 text-gray-400 text-xl md:text-2xl rounded-full cursor-not-allowed"
+                                    title="Maximum quantity reached"
                                 >
                                     +
                                 </button>
-
                             </div>
 
                             {/* Action Button */}
@@ -359,13 +336,7 @@ export default ContentModal;
 
 
 
-
-
-
-
-
-
-// fixed quantity
+// quantity upgrate
 // import { useState, useEffect } from "react";
 // import { IoAddSharp } from "react-icons/io5";
 // import { MdOutlineArrowBack } from "react-icons/md";
@@ -390,19 +361,29 @@ export default ContentModal;
 //     const handleAdd = (id) => {
 //         setQuantities((prev) => ({
 //             ...prev,
-//             [id]: 1,
+//             [id]: (prev[id] || 0) + 1,
 //         }));
 //         addItem(id);
 //     };
 
 //     const handleRemove = (id) => {
 //         setQuantities((prev) => {
+//             const currentQty = prev[id] || 0;
+
+//             if (currentQty > 1) {
+//                 return {
+//                     ...prev,
+//                     [id]: currentQty - 1,
+//                 };
+//             }
 //             const updated = { ...prev };
 //             delete updated[id];
 //             return updated;
 //         });
+
 //         removeItem(id);
 //     };
+
 
 //     if (!property) {
 //         return (
@@ -533,13 +514,20 @@ export default ContentModal;
 //                                                                 <span className="font-semibold text-gray-800 text-base sm:text-lg min-w-8 text-center">
 //                                                                     {qty}
 //                                                                 </span>
+
 //                                                                 <button
-//                                                                     disabled
-//                                                                     className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center border border-gray-400 text-gray-400 rounded-full cursor-not-allowed text-lg"
-//                                                                     title="Maximum quantity reached"
+//                                                                     onClick={() => handleAdd(item.id)}
+//                                                                     disabled={qty >= 5}
+//                                                                     className={`w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center border rounded-full text-lg
+//                                                                              ${qty >= 5
+//                                                                             ? "border-gray-400 text-gray-400 cursor-not-allowed"
+//                                                                             : "border-[#01788E] text-[#01788E] hover:bg-gray-50 cursor-pointer"
+//                                                                         }`}
+//                                                                     title={qty >= 5 ? "Maximum 5 services allowed" : ""}
 //                                                                 >
 //                                                                     +
 //                                                                 </button>
+
 //                                                             </div>
 //                                                         )}
 //                                                     </div>
@@ -667,13 +655,20 @@ export default ContentModal;
 //                                 <span className="text-lg md:text-xl font-semibold mx-4 md:mx-6 w-8 text-center">
 //                                     {quantities[selectedItem.id] || 0}
 //                                 </span>
+
 //                                 <button
-//                                     disabled
-//                                     className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center border border-gray-300 text-gray-400 text-xl md:text-2xl rounded-full cursor-not-allowed"
-//                                     title="Maximum quantity reached"
+//                                     onClick={() => handleAdd(selectedItem.id)}
+//                                     disabled={(quantities[selectedItem.id] || 0) >= 5}
+//                                     className={`w-8 h-8 md:w-10 md:h-10 flex items-center justify-center border rounded-full text-xl md:text-2xl
+//                                              ${(quantities[selectedItem.id] || 0) >= 5
+//                                             ? "border-gray-400 text-gray-400 cursor-not-allowed"
+//                                             : "border-[#01788E] text-[#01788E] hover:bg-gray-50 cursor-pointer"
+//                                         }`}
+//                                     title={(quantities[selectedItem.id] || 0) >= 5 ? "Maximum 5 allowed" : ""}
 //                                 >
 //                                     +
 //                                 </button>
+
 //                             </div>
 
 //                             {/* Action Button */}

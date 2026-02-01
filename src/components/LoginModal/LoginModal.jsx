@@ -519,12 +519,12 @@ const LoginModal = ({ open, onClose }) => {
                                 />
 
                                 {/* Mobile Icon */}
-                                <div className="text-gray-500 ml-2">
+                                {/* <div className="text-gray-500 ml-2">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                                         <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
                                         <path d="M12 18h.01"></path>
                                     </svg>
-                                </div>
+                                </div> */}
                             </div>
                             {validationError && (
                                 <p className="mt-2 text-sm text-red-600 flex items-center">
@@ -671,7 +671,7 @@ const LoginModal = ({ open, onClose }) => {
                                     className={`group flex items-center px-5 py-[12px] cursor-pointer hover:bg-[#f3f4f6] transition-all ${countryItem.iso === country.iso ? 'bg-[#f5f5f5]' : ''}`}
                                 >
                                     {/* Flag Image from CDN */}
-                                    <div className="w-7 h-5 mr-5 shadow-sm overflow-hidden rounded-[2px] border border-gray-100 flex-shrink-0">
+                                    <div className="w-7 h-5 mr-5 shadow-sm overflow-hidden rounded-xs border border-gray-100 shrink-0">
                                         <img
                                             src={`https://flagcdn.com/w40/${countryItem.iso}.png`}
                                             alt={countryItem.name}
