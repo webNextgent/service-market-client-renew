@@ -32,7 +32,6 @@ export const SummaryProvider = ({ children }) => {
     const [cassieModalOpen, setCassieModalOpen] = useState(false);
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
-    console.log(user);
 
     // Saved addresses management
     const [saveAddress, setSaveAddress] = useState(() => {
